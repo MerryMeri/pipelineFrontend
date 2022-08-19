@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="index.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/apigClient.js"></script>
+        <script type="module" src="apiGateway-js-sdk/apigClient.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <center>
+        <header class="photosTitle">
+            Photo Search and Upload
+        </header>
+    </center>
+    <body>
+        <div class="container-fluid">
+            <center>
+                <input name="searchQuery" id = "search" type="text" style="width: 300px; height: 40px; font-size: 16px" placeholder="Search for Photos" autocomplete="off" autofocus>
+                <button type="button" id="searchPhotos" name="searchPhotos" style="width: 150px; height: 40px; font-size: 16px" onclick="search()">Search</button>
+                <button type="button">
+                    <i class="fa fa-microphone" id="micSearch" style="font-size: 16px" onclick="searchVoice()"></i>
+                </button>
+                <p class="searchInfo">Click the microphone to start or stop recording.</p>
+            </center>
+        </div>
+        <div class="row">
+            <div class="column" id="photoResults1">
+            </div>
+            <div class="column" id="photoResults2">
+            </div>
+            <div class="column" id="photoResults3">
+            </div>
+        </div>
+        <div class="Upload_files">
+            <h2 style="text-align: center;">Upload Photos</h2>
+            <center>
+                <input type="file" id="file" name="filename">
+                <input type="text" id="tags" name="tagsInput" style="width: 300px; height: 40px; font-size: 16px" placeholder="Custom labels">
+                <button id="uploadFiles" style="width: 150px; height: 40px; font-size: 16px" onclick="upload()">Upload</button>
+            </center>
+        </div>
+    </body>
+</html>
